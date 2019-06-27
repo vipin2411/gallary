@@ -66,6 +66,10 @@ echo "
 </div>
 <?php
 $target_dir = "uploads/";
+if(is_dir($target_dir)==false)
+{
+    mkdir($target_dir);
+}
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $target_file = $target_dir . strtolower(basename($_FILES["fileToUpload"]["name"]));
 $uploadOk = 1;
