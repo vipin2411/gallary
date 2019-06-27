@@ -66,11 +66,7 @@ echo "
 </div>
 <?php
 $target_dir = "uploads/";
-if(is_dir($target_dir)==false)
-{
-    mkdir($target_dir);
-}
-    chmod($target_dir,0777);
+    mkdir($target_dir,0777);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $target_file = $target_dir . strtolower(basename($_FILES["fileToUpload"]["name"]));
 $uploadOk = 1;
@@ -105,7 +101,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     $uploadOk = 0;
 }
 else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir)) {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "<p>". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.</p>";
     } else {
         echo "<p>Sorry, there was an error uploading your file.</p>";
