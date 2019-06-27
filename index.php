@@ -66,6 +66,8 @@ echo "
 </div>
 <?php
 $target_dir = "uploads/";
+ chown($target_dir,"nobody");
+ chmod($target_dir,0777);
 #    mkdir($target_dir,0777);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $target_file = $target_dir . strtolower(basename($_FILES["fileToUpload"]["name"]));
